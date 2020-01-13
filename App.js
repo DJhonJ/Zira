@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Comenzando con zira</Text>
-    </View>
-  );
+import Input from './src/components/Input.js';
+
+class App extends Component {
+  render(){
+    return (
+      <View style={styles.container}>
+        <Text>Comenzando con zira.</Text>
+        <Input styleInput="2" />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -18,3 +23,5 @@ const styles = StyleSheet.create({
     padding: 20
   },
 });
+
+export default App;
