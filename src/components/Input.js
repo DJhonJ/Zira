@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { TextInput, View, StyleSheet, Text } from 'react-native';
+import { TextInput, View, StyleSheet, Text, Alert } from 'react-native';
 
 import theme from '../config/colors.js';
 
 class Input extends Component {
   render() {
-    const { styleInput } = this.props;
+    const { typeInput, placeholder, onSubmit, value, onChangeText } = this.props;
 
     return (
       <View>
-        <TextInput style={ styleInput == '2' ? styles.input2 : styles.input  } placeholder="hola" />
+        <TextInput style={ typeInput == '2' ? styles.input2 : styles.input  } placeholder={placeholder}
+                   onSubmitEditing={ onSubmit } value={value} onChangeText={ onChangeText }
+         />
       </View>
     );
   }
