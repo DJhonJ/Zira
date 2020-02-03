@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, FlatList, Alert, Keyboard, TouchableWithoutFeed
 import Constants from 'expo-constants';
 
 import Input from '../Input.js';
-import Item from '../Item.js';
+import Titulo from '../Titulo.js';
+import Card from '../Card.js';
 
 class Home extends Component {
   static navigationOptions = {
@@ -14,7 +15,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      value: ''
+      value: '',
+      loading: false
     }
   }
 
@@ -26,8 +28,14 @@ class Home extends Component {
     return(
       <TouchableWithoutFeedback onPress={()=> Keyboard.dismiss()}>
         <View style={styles.container}>
-            <Input value={this.state.value} typeInput="2" placeholder="buscar ..."
+          <View style={{ flex:0, alignItems: 'center', marginBottom: 10 }}>
+            <Titulo>Soy el titulo</Titulo>
+          </View>
+
+          <Input value={this.state.value} typeInput="2" placeholder="buscar ..."
                    onChangeText={ (text) => { this.setState({ value: text }) } } />
+
+          <Card />
         </View>
       </TouchableWithoutFeedback>
     );
