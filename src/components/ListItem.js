@@ -4,16 +4,22 @@ import PropTypes from 'prop-types';
 
 class ListItem extends Component {
   render(){
-    const { text, titulo, onPress, image } = this.props;
+    const { text, title, onPress, image, description } = this.props;
 
     return(
       <View style={styles.container}>
         <View>
-          {
-
-          }
+          <Image style={ styles.image } source={{ uri: image }} />
         </View>
-        <Text style={ styles.item } onPress={ onPress }>{ text }</Text>
+
+        <View>
+          <Text style={ styles.title } onPress={ onPress }>{ title }</Text>
+        </View>
+
+        <View>
+          <Text style={ styles.description } onPress={ onPress }>{ description }</Text>
+        </View>
+
       </View>
     )
   }
@@ -26,12 +32,22 @@ ListItem.PropTypes = {
 
 const styles = StyleSheet.create({
   container:{
+    flex: 1,
     backgroundColor: '#bebebe',
     padding: 5,
     marginVertical: 2,
-    borderRadius: 4
+    borderRadius: 4,
+    flexDirection: 'row'
   },
-  item: {
+  image: {
+    width: 130,
+    height: 80,
+    marginRight: 5
+  },
+  description: {
+    
+  },
+  title: {
 
   }
 });

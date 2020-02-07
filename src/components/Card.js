@@ -6,15 +6,15 @@ import ListItem from './ListItem.js';
 const data = [
   {
     name: 'uno',
-    image: ''
+    image: 'https://via.placeholder.com/150/92c952'
   },
   {
     name: 'dos',
-    image: 'https://facebook.github.io/react-native/img/tiny_logo.png'
+    image: 'https://via.placeholder.com/150/771796'
   },
   {
     name: 'tres',
-    image: ''
+    image: 'https://via.placeholder.com/150/d32776'
   }
 ];
 
@@ -24,8 +24,9 @@ class Card extends React.Component {
     return(
       <View style={ styles.container }>
         <FlatList
+        style={ styles.card }
         data={data}
-        renderItem={ ({item}) => <ListItem image={item.image} text={item.name} /> }
+        renderItem={ ({item}) => <ListItem image={item.image} title={item.name} description={item.name} /> }
         keyExtractor={item => item.name}
          />
       </View>
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
     marginVertical: 7
   },
   card: {
-
   }
 });
 
