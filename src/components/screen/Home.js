@@ -16,12 +16,14 @@ class Home extends Component {
 
     this.state = {
       value: '',
-      loading: false
+      loading: false,
+      videos: []
     }
   }
 
-  //esta funcion se ejecuta despues de que se hallan  montado los componentes
+  //esta funcion se ejecuta despues de que se hallan montado los componentes
   componentDidMount() {
+    //this.buscador(this.state.value)
   }
 
   render(){
@@ -33,12 +35,23 @@ class Home extends Component {
           </View>
 
           <Input value={this.state.value} typeInput="2" placeholder="buscar ..."
-                   onChangeText={ (text) => { this.setState({ value: text }) } } />
+                   onChangeText={ (text) => { this.setState({ value: text }) } }
+                   onSubmit={() => this.buscador() } />
 
-          <Card />
+          <Card load={this.state.loading} data={this.state.videos} />
         </View>
       </TouchableWithoutFeedback>
     );
+  }
+
+  buscador() {
+    const key = 'AIzaSyA6vp-xcPCf1-1TtmHc49Sq9kwPv4RTaBA';
+    let url = `https://www.googleapis.com/youtube/v3/search?key=${key}&part=snippet&type=video&q=${this.state.value}`;
+
+    this.setState({ loading: true })
+
+    fetch(url).then(response => response.json())
+              .then(response => { this.setState({ videos: response.items, loading: false }) })
   }
 }
 

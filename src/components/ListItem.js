@@ -11,7 +11,7 @@ class ListItem extends Component {
         <View>
           <Image style={ styles.image } source={{ uri: image }} />
         </View>
-
+ 
         <View>
           <View style={{  }}>
             <Text style={ styles.title } onPress={ onPress }>{ title }</Text>
