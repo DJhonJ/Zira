@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class ListItem extends Component {
   render(){
-    const { text, title, onPress, image, description } = this.props;
+    const { text, title, onPress, image, autor } = this.props;
 
     return(
       <View style={styles.container}>
@@ -13,22 +13,19 @@ class ListItem extends Component {
         </View>
 
         <View>
-          <Text style={ styles.title } onPress={ onPress }>{ title }</Text>
-        </View>
+          <View style={{  }}>
+            <Text style={ styles.title } onPress={ onPress }>{ title }</Text>
+          </View>
 
-        <View>
-          <Text style={ styles.description } onPress={ onPress }>{ description }</Text>
+          <View style={{marginTop: 7}}>
+            <Text style={ styles.autor } onPress={ onPress }>{ autor }</Text>
+          </View>
         </View>
 
       </View>
     )
   }
 }
-
-ListItem.PropTypes = {
-  text: PropTypes.string,
-  titulo: PropTypes.string
-};
 
 const styles = StyleSheet.create({
   container:{
@@ -42,13 +39,18 @@ const styles = StyleSheet.create({
   image: {
     width: 130,
     height: 80,
-    marginRight: 5
+    marginRight: 5,
+    marginVertical: 5
   },
-  description: {
-    
+  autor: {
+    fontSize: 13,
+    fontWeight: 'bold'
   },
   title: {
-
+    fontSize:15,
+    flexGrow: 1,
+    width: 250,
+    flexWrap: 'wrap'
   }
 });
 

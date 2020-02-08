@@ -5,16 +5,19 @@ import ListItem from './ListItem.js';
 
 const data = [
   {
-    name: 'uno',
-    image: 'https://via.placeholder.com/150/92c952'
+    name: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
+    image: 'https://via.placeholder.com/150/92c952',
+    autor: 'autor 1'
   },
   {
-    name: 'dos',
-    image: 'https://via.placeholder.com/150/771796'
+    name: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    image: 'https://via.placeholder.com/150/771796',
+    autor: 'autor 2'
   },
   {
-    name: 'tres',
-    image: 'https://via.placeholder.com/150/d32776'
+    name: 'dolorem eum magni eos aperiam quia',
+    image: 'https://via.placeholder.com/150/d32776',
+    autor: 'autor 3'
   }
 ];
 
@@ -26,7 +29,7 @@ class Card extends React.Component {
         <FlatList
         style={ styles.card }
         data={data}
-        renderItem={ ({item}) => <ListItem image={item.image} title={item.name} description={item.name} /> }
+        renderItem={ ({item}) => <ListItem image={item.image} title={item.name} autor={item.autor} /> }
         keyExtractor={item => item.name}
          />
       </View>
