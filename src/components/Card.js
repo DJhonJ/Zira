@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native'
+import { View, FlatList, Text, StyleSheet, ScrollView } from 'react-native'
 
 import ListItem from './ListItem.js';
 import Loading from './Loading.js';
@@ -240,7 +240,7 @@ const data = [
 
 class Card extends React.Component {
   render() {
-    const { load, videos } = this.props;
+    const { load, data } = this.props;
 
     if(load){
         return(
@@ -250,12 +250,12 @@ class Card extends React.Component {
 
     return(
       <View style={ styles.container }>
-        <FlatList
-        style={ styles.card }
-        data={videos}
-        renderItem={ ({item}) => <ListItem image={item.snippet.image} title={item.snippet.title} autor={item.autor} /> }
-        keyExtractor={item => item.name}
-         />
+          <FlatList
+          style={ styles.card }
+          data={data}
+          renderItem={ ({item}) => <ListItem image={item.snippet.thumbnails.high.url} title={item.snippet.title}
+                                             autor={item.snippet.channelTitle} /> }
+          keyExtractor={item => item.id.videoId} />
       </View>
     )
   }
